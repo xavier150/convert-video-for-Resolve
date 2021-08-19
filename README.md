@@ -8,4 +8,4 @@ This script convert video files for DaVinci Resolve! :D
 - Get your converted video file(s) from "Converted" folder.
 
 # Note
-This script use ffmpeg.
+This script use ffmpeg-python: https://github.com/kkroening/ffmpeg-python
