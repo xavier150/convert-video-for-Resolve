@@ -30,6 +30,7 @@ def ClearConsole():
 class FileToConvert():
 	def __init__(self, file_name):
 		self.file_name = file_name 
+		self.export_file_name = ""
 		self.status = "Waiting"
 		
 	def ConvertFile(self):
@@ -38,6 +39,7 @@ class FileToConvert():
 		new_file_name = new_file_name[:-4]
 		new_file_name = new_file_name+".mov"
 		ExportFile = os.path.join(export_path, new_file_name)
+		self.export_file_name = new_file_name
 		
 		stream = ffmpeg.input(SourceFile)
 		vcodec = "mjpeg" #Video codec
@@ -77,7 +79,8 @@ if check_prerequisites:
 	ClearConsole()
 	print(str(len(files)) + ' file(s) converted in "Converted" folder!')
 	for x, converted_file in enumerate(converted_files):
-		print(str(x+1) + '/' + str(len(converted_files)) + ' - ' + converted_file.file_name  + ' : ' + converted_file.status)
+		print(str(x+1) + '/' + str(len(converted_files)) + ' - ' + converted_file.export_file_name + ' : ' + converted_file.status)
+	print("")
 	print("Thanks for using my script! :D")
 	print("https://github.com/xavier150/convert-video-for-Resolve by Xavier Loux.")
 	print("")
