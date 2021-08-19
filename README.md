@@ -4,5 +4,5 @@ This script convert video files for DaVinci Resolve! :D
 # Tuto
 - Run ConvertVideoForResolve.py with Python.
 - Place your video file(s) in "Source" folder.
-- Run ConvertVideoForResolve.py with Python.
+- Follow the steps in the script.
 - Get your converted video file(s) from "Converted" folder.
