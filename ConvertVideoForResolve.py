@@ -1,5 +1,7 @@
 import os 
-import ffmpeg
+import sys
+import subprocess
+import pkg_resources
 from os import listdir
 from os.path import isfile, join
 import time 
@@ -9,9 +11,17 @@ export_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),"Export")
 
 def CheckPrerequisites ():
 	print("Check prerequisites..")
-	#time.sleep(1)
 	VerifiDirs(source_path)
 	VerifiDirs(export_path)
+	
+	required = {'ffmpeg-python'}
+	installed = {pkg.key for pkg in pkg_resources.working_set}
+	missing = required - installed
+
+	if missing:
+		python = sys.executable
+		subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+	
 	print("Check prerequisites finished!")
 	return True
 
@@ -34,6 +44,7 @@ class FileToConvert():
 		self.status = "Waiting"
 		
 	def ConvertFile(self):
+		import ffmpeg
 		SourceFile = os.path.join(source_path, self.file_name)
 		new_file_name = self.file_name
 		new_file_name = new_file_name[:-4]
