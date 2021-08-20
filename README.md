@@ -1,5 +1,5 @@
 # Convert video files for DaVinci Resolve
-This script convert video files for DaVinci Resolve! :D
+This script convert video files for DaVinci Resolve with [Ffmpeg-python](https://github.com/kkroening/ffmpeg-python) ! :D
 I made this script quickly please open an issue if something doesn't work. :o
 
 |Version|Download URL|
@@ -12,7 +12,3 @@ Video: https://youtu.be/QJ-fAEpm6kw
 - Place your video file(s) in "Source" folder.
 - Follow the steps in the script.
 - Get your converted video file(s) from "Converted" folder.
-
-
-# Note
-This script use ffmpeg-python: https://github.com/kkroening/ffmpeg-python
